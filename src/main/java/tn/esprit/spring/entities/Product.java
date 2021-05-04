@@ -2,8 +2,6 @@ package tn.esprit.spring.entities;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -22,8 +20,7 @@ public class Product {
 	private float price;
 	private String image;
 	private int quantity;
-	@Enumerated(EnumType.STRING)
-	private TypeProduct type;
+
 	@ManyToOne
 	private Category category;
 	public Long getId() {
@@ -56,26 +53,20 @@ public class Product {
 	public void setQuantity(int quantity) {
 		this.quantity = quantity;
 	}
-	public TypeProduct getType() {
-		return type;
-	}
-	public void setType(TypeProduct type) {
-		this.type = type;
-	}
+
 	public Category getCategory() {
 		return category;
 	}
 	public void setCategory(Category category) {
 		this.category = category;
 	}
-	public Product(Long id, String nom, float price, String image, int quantity, TypeProduct type, Category category) {
+	public Product(Long id, String nom, float price, String image, int quantity, Category category) {
 		super();
 		this.id = id;
 		this.nom = nom;
 		this.price = price;
 		this.image = image;
 		this.quantity = quantity;
-		this.type = type;
 		this.category = category;
 	}
 	public Product() {
@@ -84,7 +75,7 @@ public class Product {
 	@Override
 	public String toString() {
 		return "Product [id=" + id + ", nom=" + nom + ", price=" + price + ", image=" + image + ", quantity=" + quantity
-				+ ", type=" + type + ", category=" + category + "]";
+				+ ", category=" + category + "]";
 	}
 	
 	
