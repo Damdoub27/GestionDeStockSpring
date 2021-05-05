@@ -1,5 +1,7 @@
 package tn.esprit.spring.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -13,11 +15,21 @@ import javax.persistence.Table;
 public class Rayon {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "Category_id")
+	@Column(name = "Rayon_id")
 	private Long id;
 	private String nom;
 	@Enumerated(EnumType.STRING)
 	private TypeProduct type;
+	
+	private List<Category> categories ;
+	
+	
+	public List<Category> getCategories() {
+		return categories;
+	}
+	public void setCategories(List<Category> categories) {
+		this.categories = categories;
+	}
 	public Long getId() {
 		return id;
 	}

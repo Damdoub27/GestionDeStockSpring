@@ -1,5 +1,7 @@
 package tn.esprit.spring.entities;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -18,7 +20,7 @@ public class Category {
 	private String nom;
 	
 	@OneToMany
-	private Product product;
+	private List<Product> products;
 
 	public Long getId() {
 		return id;
@@ -36,19 +38,21 @@ public class Category {
 		this.nom = nom;
 	}
 
-	public Product getProduct() {
-		return product;
+
+
+	public List<Product> getProducts() {
+		return products;
 	}
 
-	public void setProduct(Product product) {
-		this.product = product;
+	public void setProducts(List<Product> products) {
+		this.products = products;
 	}
 
-	public Category(Long id, String nom, Product product) {
+	public Category(Long id, String nom) {
 		super();
 		this.id = id;
 		this.nom = nom;
-		this.product = product;
+	
 	}
 
 	public Category() {
@@ -57,7 +61,7 @@ public class Category {
 
 	@Override
 	public String toString() {
-		return "Category [id=" + id + ", nom=" + nom + ", product=" + product + "]";
+		return "Category [id=" + id + ", nom=" + nom + ", product=" + products + "]";
 	}
 	
 
